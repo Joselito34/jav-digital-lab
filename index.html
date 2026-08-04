@@ -252,6 +252,44 @@
   footer{border-top:1px solid var(--hair);margin-top:70px}
   .foot{padding:26px 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-family:'JetBrains Mono';font-size:11.5px;color:var(--dim)}
 
+  /* CTA compradores */
+  .cta-row{margin-top:16px;display:flex;gap:10px;flex-wrap:wrap}
+  .mint{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;font-family:'Inter';padding:9px 15px;border-radius:9px;background:linear-gradient(135deg,var(--accent),#3B72E0);color:#fff;border:1px solid rgba(255,255,255,.12);cursor:pointer;transition:.2s;box-shadow:0 6px 18px -8px rgba(79,141,255,.6)}
+  .mint:hover{transform:translateY(-1px);filter:brightness(1.08)}
+  .mint svg{width:14px;height:14px}
+  .cform{margin-top:30px;max-width:520px;margin-left:auto;margin-right:auto;text-align:left;position:relative;display:flex;flex-direction:column;gap:14px}
+  .cform .rowf{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media(max-width:560px){.cform .rowf{grid-template-columns:1fr}}
+  .cform label{font-family:'JetBrains Mono';font-size:10px;color:var(--dim);letter-spacing:.04em;display:block;margin-bottom:6px}
+  .cform input,.cform textarea{width:100%;background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:10px;padding:11px 13px;color:var(--text);font-family:'Inter';font-size:14px;transition:.2s;resize:vertical}
+  .cform input:focus,.cform textarea:focus{outline:none;border-color:var(--accent);background:rgba(79,141,255,.06)}
+  .cform textarea{min-height:96px}
+  .cform .send{justify-content:center;width:100%;padding:13px;font-size:14px}
+  .cform .okmsg{display:none;font-size:12.5px;color:var(--green);text-align:center;font-family:'JetBrains Mono'}
+  .cform .note{font-family:'JetBrains Mono';font-size:10.5px;color:var(--dim);text-align:center;margin-top:2px}
+
+  .shotbtn{display:none;align-items:center;gap:7px;font-size:13px;font-weight:500;font-family:'Inter';padding:9px 15px;border-radius:9px;border:1px solid var(--line);color:var(--text);background:rgba(255,255,255,.02);cursor:pointer;transition:.2s}
+  .shotbtn.on{display:inline-flex}
+  .shotbtn:hover{background:rgba(255,255,255,.05);border-color:var(--accent-2)}
+  .shotbtn svg{width:14px;height:14px}
+  .lb{position:fixed;inset:0;z-index:200;background:rgba(4,8,16,.9);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:28px}
+  .lb.open{display:flex}
+  .lb__box{max-width:1000px;width:100%;display:flex;flex-direction:column;gap:14px}
+  .lb__head{display:flex;align-items:center;justify-content:space-between;color:var(--text)}
+  .lb__head .t{font-family:'Space Grotesk';font-weight:600;font-size:1.1rem}
+  .lb__close{cursor:pointer;color:var(--muted);background:rgba(255,255,255,.06);border:1px solid var(--hair);border-radius:9px;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-size:16px}
+  .lb__close:hover{color:var(--text)}
+  .lb__stage{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;align-items:center;justify-content:center;min-height:220px;max-height:74vh}
+  .lb__stage img{max-width:100%;max-height:74vh;display:block}
+  .lb__ph{padding:56px 30px;text-align:center;color:var(--dim);font-family:'JetBrains Mono';font-size:12.5px;line-height:2}
+  .lb__ph code{color:var(--accent-2)}
+  .lb__nav{position:absolute;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;background:rgba(8,13,24,.75);border:1px solid var(--hair);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:20px;user-select:none}
+  .lb__nav:hover{background:var(--accent)}
+  .lb__nav.prev{left:12px}.lb__nav.next{right:12px}
+  .lb__dots{display:flex;gap:7px;justify-content:center}
+  .lb__dots i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.25)}
+  .lb__dots i.on{background:var(--accent-2)}
+
   .rv{opacity:0;transform:translateY(20px);transition:opacity .7s,transform .7s}
   .rv.in{opacity:1;transform:none}
   @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}.pulse,.badge .pulse,.vet .u{animation:none}html{scroll-behavior:auto}}
@@ -357,7 +395,7 @@
           <div class="pain"><div class="l">EL DOLOR</div><p>El equipo comercial vivía en planillas dispersas: nadie sabía en qué etapa estaba cada negocio ni cuánto había en juego.</p></div>
           <div class="solve"><div class="l">LA SOLUCIÓN</div><p>Centraliza clientes, oportunidades y contratos en un pipeline único, con seguimiento del monto y la etapa en tiempo real.</p></div>
           <div class="ttags"><span class="ttag">CRM</span><span class="ttag">Pipeline</span><span class="ttag">Dashboards</span></div>
-          <span class="vlink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg> Video de recorrido — pega tu enlace</span>
+          <div class="cta-row"><button type="button" class="mint" data-project="CRM Minero" onclick="pick(this)">Me interesa este servicio <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><button type="button" class="shotbtn" data-shots="crm-minero" data-title="CRM Minero" onclick="openShots(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg> Ver capturas</button></div>
         </div>
       </article>
 
@@ -384,7 +422,7 @@
           <div class="pain"><div class="l">EL DOLOR</div><p>Los datos de gestión estaban dispersos y las variaciones año a año recién se notaban cuando ya habían pasado.</p></div>
           <div class="solve"><div class="l">LA SOLUCIÓN</div><p>Consolida los indicadores y muestra tendencias y variaciones en un panel único para decidir con evidencia.</p></div>
           <div class="ttags"><span class="ttag">BI</span><span class="ttag">Chart.js</span><span class="ttag">Excel/CSV</span></div>
-          <span class="vlink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg> Video de recorrido — pega tu enlace</span>
+          <div class="cta-row"><button type="button" class="mint" data-project="Análisis" onclick="pick(this)">Me interesa este servicio <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><button type="button" class="shotbtn" data-shots="analisis" data-title="Análisis" onclick="openShots(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg> Ver capturas</button></div>
         </div>
       </article>
 
@@ -409,7 +447,7 @@
           <div class="pain"><div class="l">EL DOLOR</div><p>La programación anual de la Escuela vivía repartida en múltiples planillas, sin una vista común de qué programa corría cuándo.</p></div>
           <div class="solve"><div class="l">LA SOLUCIÓN</div><p>Cruza todos los programas, sesiones e hitos del año en una sola línea de tiempo, lista para cargar desde Excel.</p></div>
           <div class="ttags"><span class="ttag">Gantt anual</span><span class="ttag">Excel/CSV</span><span class="ttag">Planificación</span><span class="ttag">HTML autónomo</span></div>
-          <span class="vlink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg> Video de recorrido — pega tu enlace</span>
+          <div class="cta-row"><button type="button" class="mint" data-project="Calendario General" onclick="pick(this)">Me interesa este servicio <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><button type="button" class="shotbtn" data-shots="calendario-general" data-title="Calendario General" onclick="openShots(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg> Ver capturas</button></div>
         </div>
       </article>
 
@@ -435,7 +473,7 @@
           <div class="pain"><div class="l">EL DOLOR</div><p>El área comercial de la Escuela no tenía un tablero consolidado: matrículas e ingresos se seguían programa por programa.</p></div>
           <div class="solve"><div class="l">LA SOLUCIÓN</div><p>Reúne matrículas, conversión e ingresos por programa en un solo dashboard comercial con la tendencia del período.</p></div>
           <div class="ttags"><span class="ttag">Dashboard</span><span class="ttag">KPIs</span><span class="ttag">Chart.js</span></div>
-          <span class="vlink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg> Video de recorrido — pega tu enlace</span>
+          <div class="cta-row"><button type="button" class="mint" data-project="Comercial · EN" onclick="pick(this)">Me interesa este servicio <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><button type="button" class="shotbtn" data-shots="comercial-en" data-title="Comercial · EN" onclick="openShots(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg> Ver capturas</button></div>
         </div>
       </article>
 
@@ -459,7 +497,7 @@
           <div class="pain"><div class="l">EL DOLOR</div><p>La asistencia se registraba a mano y las caídas o irregularidades de una sección pasaban inadvertidas por semanas.</p></div>
           <div class="solve"><div class="l">LA SOLUCIÓN</div><p>Registro centralizado que muestra la asistencia por sección y detecta automáticamente las anomalías.</p></div>
           <div class="ttags"><span class="ttag">Detección de anomalías</span><span class="ttag">Dashboards</span><span class="ttag">Excel/CSV</span></div>
-          <span class="vlink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg> Video de recorrido — pega tu enlace</span>
+          <div class="cta-row"><button type="button" class="mint" data-project="Registro Asistencia" onclick="pick(this)">Me interesa este servicio <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><button type="button" class="shotbtn" data-shots="registro-asistencia" data-title="Registro Asistencia" onclick="openShots(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg> Ver capturas</button></div>
         </div>
       </article>
 
@@ -484,7 +522,7 @@
           <div class="pain"><div class="l">EL DOLOR</div><p>Revisar el reglamento contra la normativa vigente era manual y era fácil que un artículo desactualizado se pasara por alto.</p></div>
           <div class="solve"><div class="l">LA SOLUCIÓN</div><p>Un motor lee el reglamento artículo por artículo y marca al instante lo que ya no cumple o debe actualizarse.</p></div>
           <div class="ttags"><span class="ttag">Motor de reglas JS</span><span class="ttag">Mammoth.js</span><span class="ttag">Cumplimiento</span></div>
-          <span class="vlink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg> Video de recorrido — pega tu enlace</span>
+          <div class="cta-row"><button type="button" class="mint" data-project="Revisión Reglamento" onclick="pick(this)">Me interesa este servicio <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><button type="button" class="shotbtn" data-shots="revision-reglamento" data-title="Revisión Reglamento" onclick="openShots(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg> Ver capturas</button></div>
         </div>
       </article>
 
@@ -509,7 +547,7 @@
           <div class="pain"><div class="l">EL DOLOR</div><p>La carga entre coordinadores se asignaba sin ver el balance global, y alguien terminaba sobrecargado sin que nadie lo notara a tiempo.</p></div>
           <div class="solve"><div class="l">LA SOLUCIÓN</div><p>Distribución unificada de la Escuela que calcula la carga con la fórmula oficial y sugiere reasignaciones para equilibrar.</p></div>
           <div class="ttags"><span class="ttag">Fórmula oficial</span><span class="ttag">Chart.js</span><span class="ttag">Panel IA</span></div>
-          <span class="vlink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg> Video de recorrido — pega tu enlace</span>
+          <div class="cta-row"><button type="button" class="mint" data-project="Asignación Unificado" onclick="pick(this)">Me interesa este servicio <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><button type="button" class="shotbtn" data-shots="asignacion-unificado-escuela" data-title="Asignación Unificado" onclick="openShots(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg> Ver capturas</button></div>
         </div>
       </article>
 
@@ -538,7 +576,7 @@
           <div class="pain"><div class="l">EL DOLOR</div><p>Procesar el ranking de miles de egresados a mano era lento y propenso a errores justo donde más pesan: las distinciones de honor.</p></div>
           <div class="solve"><div class="l">LA SOLUCIÓN</div><p>Consolida notas, aplica las reglas de Cum Laude y Distinción Máxima, y genera reportes y certificados por lotes para 47 programas.</p></div>
           <div class="ttags"><span class="ttag">Excel/CSV</span><span class="ttag">Python/PIL</span><span class="ttag">Reglas de honor</span><span class="ttag">JAMstack</span></div>
-          <span class="vlink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg> Video de recorrido — pega tu enlace</span>
+          <div class="cta-row"><button type="button" class="mint" data-project="ADN Académico" onclick="pick(this)">Me interesa este servicio <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><button type="button" class="shotbtn" data-shots="adn-academico" data-title="ADN Académico" onclick="openShots(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg> Ver capturas</button></div>
         </div>
       </article>
 
@@ -590,13 +628,25 @@
     <div class="contact rv">
       <h2>Iniciemos tu <span class="g">próximo proyecto</span></h2>
       <p>Cuéntame el problema y lo convierto en una herramienta que funciona.</p>
+      <form class="cform" onsubmit="return sendForm(event)">
+        <div class="rowf">
+          <div><label>Nombre</label><input id="f_name" type="text" placeholder="Tu nombre" required></div>
+          <div><label>Email</label><input id="f_email" type="email" placeholder="tu@correo.com" required></div>
+        </div>
+        <div><label>¿Qué necesitas resolver?</label><textarea id="f_msg" placeholder="Cuéntame el problema que quieres resolver…" required></textarea></div>
+        <button type="submit" class="mint send">Enviar consulta <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 3 18 9-18 9 4-9-4-9Z"/></svg></button>
+        <div class="okmsg" id="f_ok">Se abrió tu correo con el mensaje listo para enviar ✓</div>
+        <div class="note">o escríbeme directo por estos medios</div>
+      </form>
       <div class="clinks">
         <a class="cl" href="https://github.com/joselito34" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-1.8c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.8-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.6 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
           github.com/joselito34
         </a>
-        <a class="cl dim" href="#">tu-correo@ejemplo.com</a>
-        <a class="cl dim" href="#">linkedin.com/in/tu-perfil</a>
+        <a class="cl" href="https://www.linkedin.com/in/jose-antonio-vilches-bustos-94681a4b/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+          LinkedIn
+        </a>
       </div>
     </div>
   </div>
@@ -609,9 +659,92 @@
   </div>
 </footer>
 
+<div class="lb" id="lightbox">
+  <div class="lb__box">
+    <div class="lb__head"><span class="t" id="lb_title"></span><span class="lb__close" onclick="closeLB()">✕</span></div>
+    <div class="lb__stage" id="lb_stage"></div>
+    <div class="lb__dots" id="lb_dots"></div>
+  </div>
+</div>
 <script>
+  // ============================================================
+  //  CONFIGURA ESTAS DOS LÍNEAS
+  //  1) Pega tu ID de Formspree (lo obtienes al crear un form gratis en formspree.io)
+  const FORMSPREE_ID = "TU_FORM_ID";
+  //  2) Tu LinkedIn se edita más abajo en el HTML (enlace del pie)
+  // ============================================================
+
   const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.1});
   document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+  // CTA "Me interesa" -> prellenar formulario y bajar a contacto
+  function pick(btn){
+    const p=btn.dataset.project;
+    const t=document.getElementById('f_msg');
+    if(t) t.value=`Hola, me interesa el servicio "${p}". Me gustaría recibir más información o una propuesta.`;
+    document.getElementById('contacto').scrollIntoView({behavior:'smooth'});
+    setTimeout(()=>{const n=document.getElementById('f_name'); if(n) n.focus();},600);
+  }
+
+  // Envío del formulario vía Formspree (llega directo a tu correo)
+  async function sendForm(e){
+    e.preventDefault();
+    const ok=document.getElementById('f_ok');
+    const show=(txt,warn)=>{ok.textContent=txt;ok.style.display='block';ok.style.color=warn?'var(--amber)':'var(--green)';};
+    const data={
+      nombre:(document.getElementById('f_name').value||'').trim(),
+      email:(document.getElementById('f_email').value||'').trim(),
+      mensaje:(document.getElementById('f_msg').value||'').trim()
+    };
+    if(FORMSPREE_ID==="TU_FORM_ID"){ show("Falta configurar el ID de Formspree para activar el envío.",true); return false; }
+    const btn=e.target.querySelector('button[type=submit]'); const label=btn.innerHTML;
+    btn.disabled=true; btn.textContent="Enviando…";
+    try{
+      const r=await fetch("https://formspree.io/f/"+FORMSPREE_ID,{method:"POST",headers:{"Accept":"application/json","Content-Type":"application/json"},body:JSON.stringify(data)});
+      if(r.ok){ e.target.reset(); show("¡Gracias! Tu consulta fue enviada. Te responderé pronto ✓",false); }
+      else{ show("No se pudo enviar. Escríbeme por LinkedIn o GitHub abajo.",true); }
+    }catch(_){ show("No se pudo enviar. Escríbeme por LinkedIn o GitHub abajo.",true); }
+    btn.disabled=false; btn.innerHTML=label;
+    return false;
+  }
+
+  // Lightbox de capturas (carga assets/{slug}-1.png ... -5.png)
+  let lbImgs=[], lbIdx=0;
+  function render(slug){
+    const stage=document.getElementById('lb_stage'), dots=document.getElementById('lb_dots');
+    if(lbImgs.length===0){
+      stage.innerHTML='<div class="lb__ph">Aún no hay capturas para este proyecto.<br>Súbelas a tu repo como <code>assets/'+slug+'-1.png</code>, <code>-2.png</code>, …</div>';
+      dots.innerHTML=''; return;
+    }
+    stage.innerHTML='<img src="'+lbImgs[lbIdx]+'" alt="captura">'+(lbImgs.length>1?'<div class="lb__nav prev" onclick="lbMove(-1)">‹</div><div class="lb__nav next" onclick="lbMove(1)">›</div>':'');
+    dots.innerHTML=lbImgs.map((_,k)=>'<i class="'+(k===lbIdx?'on':'')+'"></i>').join('');
+  }
+  function openShots(btn){
+    const slug=btn.dataset.shots, title=btn.dataset.title;
+    lbIdx=0; lbImgs=[]; window._lbSlug=slug;
+    document.getElementById('lb_title').textContent='Capturas · '+title;
+    document.getElementById('lb_stage').innerHTML='<div class="lb__ph">Cargando…</div>';
+    document.getElementById('lightbox').classList.add('open'); document.body.style.overflow='hidden';
+    let pending=5, found=[];
+    for(let i=1;i<=5;i++){(function(i){
+      const im=new Image();
+      im.onload=()=>{found[i-1]="assets/"+slug+"-"+i+".png"; if(--pending===0){lbImgs=found.filter(Boolean);render(slug);} };
+      im.onerror=()=>{ if(--pending===0){lbImgs=found.filter(Boolean);render(slug);} };
+      im.src="assets/"+slug+"-"+i+".png";
+    })(i);}
+  }
+  function lbMove(d){ if(lbImgs.length){ lbIdx=(lbIdx+d+lbImgs.length)%lbImgs.length; render(window._lbSlug);} }
+  function closeLB(){ document.getElementById('lightbox').classList.remove('open'); document.body.style.overflow=''; }
+  document.getElementById('lightbox').addEventListener('click',e=>{ if(e.target.id==='lightbox') closeLB(); });
+  document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeLB(); if(e.key==='ArrowLeft') lbMove(-1); if(e.key==='ArrowRight') lbMove(1); });
+
+  // Mostrar "Ver capturas" solo en proyectos que ya tienen al menos 1 captura subida
+  document.querySelectorAll('.shotbtn[data-shots]').forEach(btn=>{
+    const im=new Image();
+    im.onload=()=>btn.classList.add('on');
+    im.src="assets/"+btn.dataset.shots+"-1.png";
+  });
 </script>
+
 </body>
 </html>
